@@ -1,0 +1,130 @@
+.ChatList {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background-color: #111b21;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+}
+.ChatList-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 10px 10px;
+}
+
+/* Fila superior: "Chats" + íconos a la derecha */
+.ChatList-top-ARRIBA {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* "Chats" a la izquierda */
+.ChatList-top-izq {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+/* Botones a la derecha */
+.ChatList-top-derecha {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilos botones */
+.ChatList_botones {
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Input del buscador */
+.ChatList-buscador {
+    width: 90%;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #202c33;
+    border: none;            
+}
+.ChatList-persona {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+    gap: 10px;
+    height: 60px;
+}
+.separador{
+    border: none;            
+    width: 8 0%;
+    border-bottom: 1px solid rgb(36, 36, 36);
+    margin: 0px auto;
+}
+.ChatList-persona-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.ChatList-contenedor-info {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    overflow: hidden;
+    
+}
+
+.ChatList-info-sup,
+.ChatList-info-inf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 3px 0;
+    padding: 0;
+    line-height: 1;
+}
+
+
+.ChatList-nombre {
+    font-weight: 700;
+    font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.ChatList-dia,
+.ChatList-hora {
+    color: #8797a1;
+    font-size: 14px;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.ChatList-mensaje {
+    color: #8797a1;
+    background-image: url("/imagenes/fondowpp.jpg");
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+

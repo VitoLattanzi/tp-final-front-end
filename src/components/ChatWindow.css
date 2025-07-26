@@ -1,0 +1,157 @@
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.color-letra-blanco{
+    color: white;
+}
+
+.ChatWindow-chat-persona {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f0f0f0;
+    width: 100%;  
+}
+/* VISTA SIN CHAT */
+.ChatWindow-preview-sin-chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 20px;
+    color: #888;
+}
+/* HEADER DEL CHAT (Nombre, foto y botones) */
+.ChatWindow-header {
+    color: white;
+    background-color: #202c33;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+
+.ChatWindow-header-info-contacto{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.ChatWindow-header-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.ChatWindow-header-info {
+    flex-grow: 1;
+}
+
+.ChatWindow-header-nombre {
+    font-weight: bold;
+    margin: 0;
+    font-size: 16px;
+}
+
+.ChatWindow-header-descripcion{
+    color: #8696A0;
+}
+
+.ChatWindow-header-list {
+    display: flex;
+    gap: 15px;
+}
+
+.ChatWindow-icon {
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.ChatWindow-mensajes {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding: 20px;
+  background-image: url("/imagenes/fondo 3.jpeg"); 
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 400px;
+  background-attachment: fixed;
+}
+
+.ChatWindow-mensaje.enviado {
+    align-self: flex-end;
+    background-color: green;
+    border-bottom-right-radius: 0;
+}
+
+.ChatWindow-mensaje.recibido {
+    align-self: flex-start;
+    background-color: white;
+    border-bottom-left-radius: 0;
+}
+
+.ChatWindow-texto {
+    margin: 0;
+    font-size: 14px;
+}
+
+.ChatWindow-hora {
+    font-size: 10px;
+    color: #555;
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+}
+
+/* INPUT DE MENSAJE */
+.ChatWindow-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background-color: #f0f2f5;
+    border-top: 1px solid #ccc;
+}
+
+.ChatWindow-input-contenedor-msj {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1000px;
+}
+
+.ChatWindow-input-contenedor-msj input {
+    width: 100%;
+    padding: 10px 12px 10px 45px;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    background-color: #2a3942;
+    border: none;
+    color: white;
+}
+
+.ChatWindow-smile-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8696a0;
+    pointer-events: auto;
+    z-index: 1;
+}
+.ChatWindow-input-icono {
+    cursor: pointer;
+    color: #54656f;
+}
+
+
+
