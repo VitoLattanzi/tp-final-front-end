@@ -97,14 +97,16 @@ const ChatWindow = ({ user }) => {
       </div>
 
       {/* Mensajes */}
-      <div className="ChatWindow-mensajes">
+      <div className="ChatWindow-fondo-mensajes">
         {mensajes.map((msg) => (
           <div
             key={msg.id}
             className={`ChatWindow-mensaje ${msg.enviado ? "enviado" : "recibido"}`}
           >
-            <p className="ChatWindow-texto">{msg.texto}</p>
-            <span className="ChatWindow-hora">{msg.hora}</span>
+            <div className="ChatWindow-burbuja">
+              <p className="ChatWindow-texto">{msg.texto}</p>
+              <span className="ChatWindow-hora">{msg.hora}</span>
+            </div>
           </div>
         ))}
         <div ref={mensajesEndRef} />
