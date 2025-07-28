@@ -67,8 +67,8 @@
 }
 .separador{
     border: none;            
-    width: 8 0%;
-    border-bottom: 1px solid rgb(36, 36, 36);
+    width: 80%;
+    border-bottom: 1px solid #212c33;
     margin: 0px auto;
 }
 .ChatList-persona-img {
