@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../components/ChatSideBar.css";
+import { useNavigate } from "react-router-dom";
 import {
   MessageSquareText,
   CircleDot,
@@ -9,26 +10,28 @@ import {
 } from "lucide-react";
 
 const iconos = [
-  { id: "chats", icon: <MessageSquareText />, label: "Chats" },
-  { id: "estados", icon: <CircleDot />, label: "Estados" },
-  { id: "canales", icon: <MessageCircle />, label: "Mensajes" },
-  { id: "comunidades", icon: <Users />, label: "Grupos" },
+  { id: "chats", icon: <MessageSquareText />, label: "Chats", ruta: "/chats" },
+  { id: "estados", icon: <CircleDot />, label: "Estados", ruta: "/estados" },
+  { id: "mensajes", icon: <MessageCircle />, label: "Mensajes", ruta: "/mensajes" },
+  { id: "grupos", icon: <Users />, label: "Grupos", ruta: "/grupos" },
 ];
 
 const Sidebar = () => {
   const [active, setActive] = useState("chats");
-
+  const navigate = useNavigate();
+  
   return (
     <div className="ChatSideBar">
       <div className="ChatSideBar-arriba">
         {iconos.map((item) => (
           <div className="tooltip-container" key={item.id}>
             <button
-              className={`ChatSideBar-icon-btn ${
-                active === item.id ? "activo" : ""
-              }`}
-              onClick={() => setActive(item.id)}
-              title={item.label} // tooltip nativo
+              className={`ChatSideBar-icon-btn ${active === item.id ? "activo" : ""}`}
+              onClick={() => {
+                setActive(item.id);
+                navigate(item.ruta); 
+              }}
+              title={item.label}
             >
               {item.icon}
             </button>
@@ -38,10 +41,11 @@ const Sidebar = () => {
 
       <div className="ChatSideBar-abajo">
         <button
-          className={`ChatSideBar-icon-btn ${
-            active === "settings" ? "activo" : ""
-          }`}
-          onClick={() => setActive("settings")}
+          className={`ChatSideBar-icon-btn ${active === "configuracion" ? "activo" : ""}`}
+          onClick={() => {
+            setActive("configuracion");
+            navigate("/configuracion");
+          }}
           title="Configuración"
         >
           <Settings />
