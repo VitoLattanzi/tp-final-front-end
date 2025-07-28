@@ -51,7 +51,7 @@ const Sidebar = () => {
           <Settings />
         </button>
         <img
-          src="/imagenes/tuImagenPerfil.jpg"
+          src="/imagenes/foto de perfin.jpeg" //falta conectar la imagen, nose xq no mae anda axd
           alt="Tu perfil"
           className="ChatSideBar-avatar"
         />

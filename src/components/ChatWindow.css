@@ -13,6 +13,7 @@
     background-color: #f0f0f0;
     width: 100%;  
 }
+
 /* VISTA SIN CHAT */
 .ChatWindow-preview-sin-chat {
     display: flex;
@@ -22,6 +23,7 @@
     font-size: 20px;
     color: #888;
 }
+
 /* HEADER DEL CHAT (Nombre, foto y botones) */
 .ChatWindow-header {
     color: white;

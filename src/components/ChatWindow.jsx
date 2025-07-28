@@ -22,7 +22,7 @@ const ChatWindow = ({ user }) => {
     }
   }, [user]);
 
-  // Scroll automático al final, va bajando la pantalla
+  // Scroll automático al final, va bajando la pantalla, de cada persona
   useEffect(() => {
     mensajesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [mensajes]);
@@ -44,7 +44,7 @@ const ChatWindow = ({ user }) => {
     setMensajes([...mensajes, nuevo]);
     setNuevoMensaje("");
 
-    // q haga una respuesta automática no importa que
+    // q haga una respuesta automática, algo automatico. 
     setTimeout(() => {
       const respuesta = {
         id: mensajes.length + 2,

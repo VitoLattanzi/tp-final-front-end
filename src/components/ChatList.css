@@ -55,6 +55,9 @@
     background-color: #202c33;
     border: none;            
 }
+.ChatList-sin-resultados{
+    margin-left: 18px;
+}
 .ChatList-persona {
     font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;

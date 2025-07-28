@@ -4,7 +4,7 @@ const TeclasGlobales = ({ onEscape }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        onEscape(); // esto lo manejás desde App.jsx
+        onEscape(); 
       }
     };
 

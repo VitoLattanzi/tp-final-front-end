@@ -12,7 +12,7 @@
 .ChatSideBar-abajo {
   display: flex;
   flex-direction: column;
-  gap: 15 px;
+  gap: 15px;
 }
 
 .ChatSideBar-icon-btn {
@@ -22,7 +22,7 @@
   padding: 10px;
   border-radius: 50%;
   color: #b0b3b8;
-  transition: background-color 0.3s, color 0.3s;
+  transition: 0.3s, color 0.3s;
 }
 
 .ChatSideBar-icon-btn.activo {
