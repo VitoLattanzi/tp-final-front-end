@@ -12,7 +12,7 @@ import {
 const iconos = [
   { id: "chats", icon: <MessageSquareText />, label: "Chats", ruta: "/chats" },
   { id: "estados", icon: <CircleDot />, label: "Estados", ruta: "/estados" },
-  { id: "mensajes", icon: <MessageCircle />, label: "Mensajes", ruta: "/mensajes" },
+  { id: "comunidades", icon: <MessageCircle />, label: "comunidades", ruta: "/comunidades" },
   { id: "grupos", icon: <Users />, label: "Grupos", ruta: "/grupos" },
 ];
 

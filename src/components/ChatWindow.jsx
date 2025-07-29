@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "../components/ChatWindow.css";
 import {
   Video,
@@ -15,6 +16,9 @@ const ChatWindow = ({ user }) => {
   const [nuevoMensaje, setNuevoMensaje] = useState("");
   const mensajesEndRef = useRef(null);
 
+  const navigate = useNavigate(); 
+  const { id } = useParams();    
+
   // Carga los mensajes del usuario especifico al abrir su chat
   useEffect(() => {
     if (user) {
@@ -22,12 +26,12 @@ const ChatWindow = ({ user }) => {
     }
   }, [user]);
 
-  // Scroll automático al final, va bajando la pantalla, de cada persona
+  // Scroll automático al final
   useEffect(() => {
     mensajesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [mensajes]);
 
-  //cargar el nuevo mensaje
+  // Enviar mensaje
   const handleSend = () => {
     if (nuevoMensaje.trim() === "") return;
 
@@ -44,7 +48,7 @@ const ChatWindow = ({ user }) => {
     setMensajes([...mensajes, nuevo]);
     setNuevoMensaje("");
 
-    // q haga una respuesta automática, algo automatico. 
+    // Respuesta automática
     setTimeout(() => {
       const respuesta = {
         id: mensajes.length + 2,
@@ -59,7 +63,7 @@ const ChatWindow = ({ user }) => {
     }, 1000);
   };
 
-  //para q se manden con enter
+  // Enviar con Enter
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSend();
@@ -78,17 +82,23 @@ const ChatWindow = ({ user }) => {
     <div className="ChatWindow-chat-persona">
       {/* Header */}
       <div className="ChatWindow-header color-letra-blanco">
-          <div className="ChatWindow-header-info-contacto">
-            <img
-              src={user.imagen}
-              alt={user.nombre}
-              className="ChatWindow-header-img"
-            />
-            <div className="ChatWindow-header-info">
-              <p className="ChatWindow-header-nombre">{user.nombre}</p>
-              <span className="ChatWindow-header-descripcion">{user.descripcion}</span>
-            </div>
+        <div
+          className="ChatWindow-header-info-contacto cursor-pointer"
+          onClick={() => navigate(`/chat/${user.id}/info`)}
+        >
+          <img
+            src={user.imagen}
+            alt={user.nombre}
+            className="ChatWindow-header-img"
+          />
+          <div className="ChatWindow-header-info">
+            <p className="ChatWindow-header-nombre">{user.nombre}</p>
+            <span className="ChatWindow-header-descripcion">
+              {user.descripcion}
+            </span>
           </div>
+        </div>
+
         <div className="ChatWindow-header-list">
           <Video className="ChatWindow-icon cursor-pointer" />
           <Phone className="ChatWindow-icon cursor-pointer" />
@@ -112,7 +122,7 @@ const ChatWindow = ({ user }) => {
         <div ref={mensajesEndRef} />
       </div>
 
-      {/* Input de envío */}
+      {/* Input */}
       <div className="ChatWindow-input">
         <Paperclip className="ChatWindow-input-icono cursor-pointer" />
         <div className="ChatWindow-input-contenedor-msj">
@@ -124,13 +134,16 @@ const ChatWindow = ({ user }) => {
             onKeyDown={handleKeyDown}
             placeholder="Escribí un mensaje"
           />
-        </div>        
+        </div>
         {nuevoMensaje.trim() === "" ? (
           <Mic className="ChatWindow-input-icono cursor-pointer" />
         ) : (
-          <Send className="ChatWindow-input-icono cursor-pointer" onClick={handleSend} />
+          <Send
+            className="ChatWindow-input-icono cursor-pointer"
+            onClick={handleSend}
+          />
         )}
-      </div>  
+      </div>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import users from "../data/user";
-import ChatList from "../components/ChatList";
-import ChatWindow from "../components/ChatWindow";
-import TeclasGlobales from "../components/TeclasGlobales";
+import { Outlet, useParams, useNavigate } from "react-router-dom";
+import users from "../../data/user";
+import ChatList from "../ChatList";
+import ChatWindow from "../ChatWindow";
+import TeclasGlobales from "../TeclasGlobales";
+import "./ChatPage.css"
 
 const ChatPage = () => {
   const { id } = useParams(); // para leer el ID de la URL
@@ -31,6 +32,7 @@ const ChatPage = () => {
       <div className="right-panel">
         <ChatWindow user={selectedUser} onBack={() => setSelectedUser(null)} />
       </div>
+      <Outlet /> 
     </>
   );
 };
