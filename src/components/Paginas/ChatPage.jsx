@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Outlet, useParams, useNavigate } from "react-router-dom";
-import users from "../../data/user";
 import ChatList from "../ChatList";
 import ChatWindow from "../ChatWindow";
 import TeclasGlobales from "../TeclasGlobales";
 import "./ChatPage.css"
+import { useChat } from "../context/ChatContext";
+import { useUsers } from "../context/UserContext";
 
 const ChatPage = () => {
-  const { id } = useParams(); // para leer el ID de la URL
+  const { users } = useUsers();
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [selectedUser, setSelectedUser] = useState(null);
 
@@ -20,19 +22,19 @@ const ChatPage = () => {
 
   const handleSelectUser = (user) => {
     setSelectedUser(user);
-    navigate(`/chat/${user.id}`); // cambia la URL
+    navigate(`/chat/${user.id}`);
   };
 
   return (
     <>
       <TeclasGlobales onEscape={() => setSelectedUser(null)} />
       <div className="left-panel">
-        <ChatList users={users} onSelectUser={handleSelectUser} />
+        <ChatList onSelectUser={handleSelectUser} />
       </div>
       <div className="right-panel">
-        <ChatWindow user={selectedUser} onBack={() => setSelectedUser(null)} />
+        <ChatWindow onBack={() => setSelectedUser(null)} />
       </div>
-      <Outlet /> 
+       <Outlet /> 
     </>
   );
 };

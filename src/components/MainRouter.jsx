@@ -18,7 +18,7 @@ const MainRouter = () => {
         </Route>
         <Route path="/estados" element={<Estados />} /> 
         <Route path="/comunidades" element={<Comunidades />} />
-        <Route path="/grupos" element={<mensajes />} />
+        <Route path="/grupos" element={<Grupos />} />
         <Route path="/configuracion" element={<Configuracion />} />
       </Route>
     </Routes>

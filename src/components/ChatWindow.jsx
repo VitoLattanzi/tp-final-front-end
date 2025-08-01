@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../components/ChatWindow.css";
+import { useChat } from "../components/context/ChatContext";
 import {
   Video,
   Phone,
@@ -9,24 +10,26 @@ import {
   Paperclip,
   Mic,
   Send,
+  Trash,
 } from "lucide-react";
 
-const ChatWindow = ({ user }) => {
-  const [mensajes, setMensajes] = useState([]);
+const ChatWindow = () => {
+  const { selectedUser, mensajes, setMensajes } = useChat();
   const [nuevoMensaje, setNuevoMensaje] = useState("");
+  const [hoveredId, setHoveredId] = useState(null);
   const mensajesEndRef = useRef(null);
 
-  const navigate = useNavigate(); 
-  const { id } = useParams();    
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-  // Carga los mensajes del usuario especifico al abrir su chat
+  // Carga los mensajes del usuario al abrir chat
   useEffect(() => {
-    if (user) {
-      setMensajes(user.mensajes || []);
+    if (selectedUser) {
+      setMensajes(selectedUser.mensajes || []);
     }
-  }, [user]);
+  }, [selectedUser]);
 
-  // Scroll automático al final
+  // Scroll automático al fondo
   useEffect(() => {
     mensajesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [mensajes]);
@@ -70,7 +73,13 @@ const ChatWindow = ({ user }) => {
     }
   };
 
-  if (!user) {
+  // Eliminar mensaje
+  const handleDeleteMessage = (id) => {
+    const nuevos = mensajes.filter((msg) => msg.id !== id);
+    setMensajes(nuevos);
+  };
+
+  if (!selectedUser) {
     return (
       <div className="ChatWindow-preview-sin-chat">
         <p>Seleccioná un chat para empezar a chatear.</p>
@@ -78,23 +87,25 @@ const ChatWindow = ({ user }) => {
     );
   }
 
+if (!mensajes) return null;
+
   return (
     <div className="ChatWindow-chat-persona">
       {/* Header */}
       <div className="ChatWindow-header color-letra-blanco">
         <div
           className="ChatWindow-header-info-contacto cursor-pointer"
-          onClick={() => navigate(`/chat/${user.id}/info`)}
+          onClick={() => navigate(`/chat/${selectedUser.id}/info`)}
         >
           <img
-            src={user.imagen}
-            alt={user.nombre}
+            src={selectedUser.imagen}
+            alt={selectedUser.nombre}
             className="ChatWindow-header-img"
           />
           <div className="ChatWindow-header-info">
-            <p className="ChatWindow-header-nombre">{user.nombre}</p>
+            <p className="ChatWindow-header-nombre">{selectedUser.nombre}</p>
             <span className="ChatWindow-header-descripcion">
-              {user.descripcion}
+              {selectedUser.descripcion}
             </span>
           </div>
         </div>
@@ -112,10 +123,19 @@ const ChatWindow = ({ user }) => {
           <div
             key={msg.id}
             className={`ChatWindow-mensaje ${msg.enviado ? "enviado" : "recibido"}`}
+            onMouseEnter={() => setHoveredId(msg.id)}
+            onMouseLeave={() => setHoveredId(null)}
           >
             <div className="ChatWindow-burbuja">
               <p className="ChatWindow-texto">{msg.texto}</p>
               <span className="ChatWindow-hora">{msg.hora}</span>
+              {hoveredId === msg.id && (
+                <Trash2
+                  size={16}
+                  className="ChatWindow-trash"
+                  onClick={() => handleDeleteMessage(msg.id)}
+                />
+              )}
             </div>
           </div>
         ))}

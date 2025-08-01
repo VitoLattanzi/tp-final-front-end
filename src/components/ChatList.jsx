@@ -5,10 +5,12 @@ import { useSearchParams } from "react-router-dom";
 import "../components/ChatList.css";
 import users from "../data/user";
 import {MoreVertical, Search, MessageCirclePlus} from "lucide-react";
+import { useUsers } from "./context/UserContext";
 
-const ChatList = ({ users, onSelectUser }) => {
+const ChatList = ({ onSelectUser }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const filtro = searchParams.get("buscar") || "";
+  const { users } = useUsers();
 
   const handleInputChange = (e) => {
     setSearchParams({ buscar: e.target.value });

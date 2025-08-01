@@ -135,6 +135,19 @@
     color: #888;
 }
 
+.ChatWindow-trash {
+    position: absolute;
+    top: 4px;
+    right: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.ChatWindow-trash:hover {
+    color: red;
+}
+
 /* INPUT DE MENSAJE */
 .ChatWindow-input {
     display: flex;
