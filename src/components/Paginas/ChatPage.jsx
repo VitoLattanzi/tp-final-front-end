@@ -8,20 +8,24 @@ import { useChat } from "../context/ChatContext";
 import { useUsers } from "../context/UserContext";
 
 const ChatPage = () => {
-  const { users } = useUsers();
-  const { id } = useParams(); 
+  const { id } = useParams();
   const navigate = useNavigate();
-  const [selectedUser, setSelectedUser] = useState(null);
+  const { users } = useUsers();
+  const { selectedUser, setSelectedUser, setMensajes } = useChat();
 
   useEffect(() => {
-    if (id) {
+    if (id && users) {
       const user = users.find((u) => u.id.toString() === id);
-      setSelectedUser(user || null);
+      if (user) {
+        setSelectedUser(user);
+        setMensajes(user.mensajes || []);
+      }
     }
-  }, [id]);
+  }, [id, users]);
 
   const handleSelectUser = (user) => {
     setSelectedUser(user);
+    setMensajes(user.mensajes || []);
     navigate(`/chat/${user.id}`);
   };
 
@@ -32,9 +36,9 @@ const ChatPage = () => {
         <ChatList onSelectUser={handleSelectUser} />
       </div>
       <div className="right-panel">
-        <ChatWindow onBack={() => setSelectedUser(null)} />
+        <ChatWindow />
+        <Outlet />
       </div>
-       <Outlet /> 
     </>
   );
 };

@@ -130,7 +130,7 @@ if (!mensajes) return null;
               <p className="ChatWindow-texto">{msg.texto}</p>
               <span className="ChatWindow-hora">{msg.hora}</span>
               {hoveredId === msg.id && (
-                <Trash2
+                <Trash
                   size={16}
                   className="ChatWindow-trash"
                   onClick={() => handleDeleteMessage(msg.id)}
