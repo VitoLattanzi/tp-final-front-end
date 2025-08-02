@@ -10,7 +10,12 @@ export const ChatProvider = ({ children }) => {
 
   return (
     <ChatContext.Provider
-      value={{ selectedUser, setSelectedUser, mensajes, setMensajes }}
+      value={{
+        selectedUser,
+        setSelectedUser, // << NECESARIO
+        mensajes,
+        setMensajes,
+      }}
     >
       {children}
     </ChatContext.Provider>

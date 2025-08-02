@@ -1,39 +1,76 @@
 .ChatSideBar {
-  width: 60px;
-  background-color: #1f2c34;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px 0;
-  align-items: center;
+    width: 60px;
+    background-color: #1f2c34;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+    align-items: center;
+    height: 100vh;
+    position: relative;
 }
 
 .ChatSideBar-arriba,
 .ChatSideBar-abajo {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .ChatSideBar-icon-btn {
-  background-color: transparent;
-  text-align:center;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  color: #b0b3b8;
-  transition: 0.3s, color 0.3s;
+    background-color: transparent;
+    text-align:center;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    color: #b0b3b8;
+    transition: 0.3s, color 0.3s;
 }
 
 .ChatSideBar-icon-btn.activo {
-  background-color: #3a3a3a;
-  color: white;
+    background-color: #3a3a3a;
+    color: white;
   
 }
 
 .ChatSideBar-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
  
+
+/* responsive */
+@media screen and (max-width: 767px) {
+  .ChatSideBar {
+    flex-direction: row;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    padding: 0 10px;
+    background-color: #1f2c34;
+    z-index: 999;
+    justify-content: space-around;
+  }
+
+  .ChatSideBar-arriba,
+  .ChatSideBar-abajo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 0;
+  }
+
+  .ChatSideBar-avatar {
+    display: none;
+  }
+
+  .ChatSideBar-icon-btn {
+    padding: 10px;
+    font-size: 20px;
+  }
+}

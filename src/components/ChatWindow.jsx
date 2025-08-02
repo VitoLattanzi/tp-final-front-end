@@ -11,14 +11,14 @@ import {
   Mic,
   Send,
   Trash,
+  ArrowLeft,
 } from "lucide-react";
 
 const ChatWindow = () => {
-  const { selectedUser, mensajes, setMensajes } = useChat();
+  const { selectedUser, setSelectedUser, mensajes, setMensajes } = useChat();
   const [nuevoMensaje, setNuevoMensaje] = useState("");
   const [hoveredId, setHoveredId] = useState(null);
   const mensajesEndRef = useRef(null);
-
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -79,6 +79,12 @@ const ChatWindow = () => {
     setMensajes(nuevos);
   };
 
+  const handleBack = () => {
+    setSelectedUser(null);
+    setMensajes([]);
+    navigate("/chats");
+  };
+
   if (!selectedUser) {
     return (
       <div className="ChatWindow-preview-sin-chat">
@@ -87,12 +93,15 @@ const ChatWindow = () => {
     );
   }
 
-if (!mensajes) return null;
+  if (!mensajes) return null;
 
   return (
     <div className="ChatWindow-chat-persona">
       {/* Header */}
       <div className="ChatWindow-header color-letra-blanco">
+        <button onClick={handleBack} className="ChatWindow-volver-btn">
+          <ArrowLeft size={22} />
+        </button>
         <div
           className="ChatWindow-header-info-contacto cursor-pointer"
           onClick={() => navigate(`/chat/${selectedUser.id}/info`)}
@@ -103,7 +112,9 @@ if (!mensajes) return null;
             className="ChatWindow-header-img"
           />
           <div className="ChatWindow-header-info">
-            <p className="ChatWindow-header-nombre">{selectedUser.nombre}</p>
+            <p className="ChatWindow-header-nombre">
+              {selectedUser.nombre}
+            </p>
             <span className="ChatWindow-header-descripcion">
               {selectedUser.descripcion}
             </span>

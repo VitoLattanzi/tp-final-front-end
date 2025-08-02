@@ -4,6 +4,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./components/context/UserContext";
 import { ChatProvider } from "./components/context/ChatContext";
+import './index.css'; 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
