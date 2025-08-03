@@ -53,7 +53,7 @@
     padding: 0 10px;
     background-color: #1f2c34;
     z-index: 999;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .ChatSideBar-arriba,

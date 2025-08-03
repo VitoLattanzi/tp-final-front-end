@@ -27,10 +27,10 @@ const ChatList = ({ onSelectUser }) => {
         <div className="ChatList-top-ARRIBA">
           <p className="ChatList-top-izq">Chats</p>
           <div className="ChatList-top-derecha">
-            <button className="ChatList_botones">
+            <button className="ChatList-botones">
               <MessageCirclePlus />
             </button>
-            <button className="ChatList_botones">
+            <button className="ChatList-botones">
               <MoreVertical />
             </button>
           </div>
