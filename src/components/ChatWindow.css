@@ -107,6 +107,7 @@
     position: relative;
     padding: 4px 30px 4px 6px;
     gap: 5PX;
+    
 }
 
 .ChatWindow-mensaje {
@@ -151,8 +152,9 @@
 
 .ChatWindow-trash {
     position: absolute;
-    top: 4px;
-    right: 24px;
+    right: -30px; 
+    top: 50%;
+    transform: translateY(-50%);
     color: #ccc;
     cursor: pointer;
     transition: 0.2s;
