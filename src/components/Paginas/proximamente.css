@@ -1,0 +1,60 @@
+.contenedor-prox{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111b21;
+    color: #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.PROXIMAMENTE{
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #1f2c34;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.PROXIMAMENTE h1 {
+    font-size: 5vw;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.PROXIMAMENTE p {
+    font-size: 4vw;
+    line-height: 1.4;
+}
+
+
+@media screen and (max-width: 767px) {
+    .PROXIMAMENTE  h1 {
+        font-size: 28px;    
+    }
+
+    .PROXIMAMENTE p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .PROXIMAMENTE {
+        max-width: 600px;
+        padding: 40px;
+    }
+
+    .PROXIMAMENTE h1 {
+        font-size: 32px;
+    }
+
+    .PROXIMAMENTE p {
+        font-size: 18px;
+    }
+}

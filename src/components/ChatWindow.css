@@ -51,7 +51,7 @@
 .ChatWindow-header-info-contacto{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
 }
 
@@ -204,5 +204,28 @@
     color: #54656f;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+.ChatWindow-header-nombre {
+    font-size: 15px;
+  }
 
+  .ChatWindow-header-descripcion {
+    font-size: 13px;
+  }
+
+  .ChatWindow-mensaje {
+    font-size: 13.5px;
+    max-width: 70%;
+  }
+
+  .ChatWindow-input-contenedor-msj input {
+    font-size: 15px;
+  }
+
+  .ChatWindow-icon,
+  .ChatWindow-smile-icon,
+  .ChatWindow-input-icono {
+    font-size: 20px;
+  }
+}
 

@@ -58,3 +58,64 @@
     border-radius: 8px;
     cursor: pointer;
 }
+
+
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+    .ContactInfo {
+        width: 280px;
+        font-size: 14px;
+    }
+
+    .ContactInfo-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .ContactInfo-btn {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .ContactInfo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #111b21;
+        z-index: 1000;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ContactInfo-img {
+        width: 120px;
+        height: 120px;
+        margin-top: 30px;
+    }
+
+    .ContactInfo-nombre {
+        font-size: 20px;
+    }
+
+    .ContactInfo-btn {
+        font-size: 16px;
+        width: 90%;
+    }
+
+    .ContactInfo-volver-btn {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 1001;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+    }
+}
